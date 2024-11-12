@@ -1,0 +1,52 @@
+class Partner:
+    def __init__(self):
+        self.gender = None 
+        self.age = None
+        self.height = None
+        self.weight = None
+        self.city = None
+        self.has_children = None 
+        self.education = None
+        self.has_tattoos = None 
+        self.has_piercings = None
+        self.interests = []
+        self.name = None
+
+class User:
+    def __init__(self):
+        self.city = None
+        self.interests = []
+
+
+partner = Partner()
+partner.gender = True
+partner.age = 22
+partner.height = 180
+partner.weight = 55
+partner.city = "Москва"
+partner.has_children = False
+partner.education = "Высшее"
+partner.has_tattoos = False
+partner.has_piercings = False
+partner.interests = ["Музыка", "Кино", "Спорт"]
+partner.name = "Екатерина"
+
+user = User()
+user.city = "Москва"
+user.interests = ["Музыка", "Спорт", "Путешествия", "Чтение", "Искусство"]
+
+is_potential_partner = (
+    partner.gender
+    and 20 <= partner.age <= 25
+    and partner.height > 175
+    and partner.weight < 60
+    and partner.city == user.city
+    and not partner.has_children
+    and partner.education == "Высшее"
+    and not partner.has_tattoos
+    and not partner.has_piercings
+    and len(set(partner.interests).intersection(set(user.interests))) > 5
+)
+
+print(f"Является ли {partner.name} потенциальным партнером: {is_potential_partner}")
+
